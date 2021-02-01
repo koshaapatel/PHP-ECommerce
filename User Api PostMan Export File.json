@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "010b71b2-3f38-4c16-9f50-02c050f93be4",
+		"name": "PHP ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3db7b083-e0bb-4639-9120-ae928d4ae450",
+						"exec": [
+							"pm.test(\"Login with valid creadentails\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "koshapatel1045",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/web_php/login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"web_php",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b1322a8-49b1-4555-890c-50ce9b8462d9",
+						"exec": [
+							"pm.test(\"Check Status\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get User Detail\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.data.email).to.equal(\"koshapatel1045@gmail.com\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/web_php/getUserDetail.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"web_php",
+						"getUserDetail.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save User Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f381a9d7-98e3-403e-9828-92380eeb55a0",
+						"exec": [
+							"pm.test(\"Check Status if you add existing user\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(false);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "koshapatel1045232@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "koshapatel1045232",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "add_line_1",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "add_line_2",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "asd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/web_php/saveUserDetail.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"web_php",
+						"saveUserDetail.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9bd5ac4-1a56-42fd-bf67-af66accd0048",
+						"exec": [
+							"pm.test(\"Check Status if you update user detail successfully\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "koshapatel1045@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "koshapatel1045",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "add_line_1",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "add_line_2",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "waterloo",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "asd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/web_php/updateUserDetail.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"web_php",
+						"updateUserDetail.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62dd45d8-4d4a-47b1-af8b-aaeaa41dcbff",
+						"exec": [
+							"pm.test(\"Check Status if you save password successfully\", function () { \r",
+							"     var json = pm.response.json();\r",
+							"     pm.expect(json.status).to.equal(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "new_password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/web_php/changePassword.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"web_php",
+						"changePassword.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
